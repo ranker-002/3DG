@@ -1068,13 +1068,50 @@ CSS = """
   --mono:  'JetBrains Mono', 'Fira Code', monospace;
   --green: #22c55e; --amber: #f59e0b; --blue: #3b82f6; --red: #ef4444;
 }
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
 body, .gradio-container {
   font-family: var(--font) !important;
   background: var(--bg) !important;
   color: var(--s100) !important;
   -webkit-font-smoothing: antialiased;
 }
-.gradio-container { max-width: 1480px !important; margin: 0 auto !important; padding: 0 !important; }
+/* Full-bleed: remove every wrapper that adds horizontal breathing room */
+.gradio-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* Gradio 4.x inner wrappers (.main, .contain, .wrap, .gap-4 row) */
+.gradio-container > .main,
+.gradio-container main {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+.contain {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+/* Gradio stretches rows with a gap; kill it so columns touch the edge */
+.gradio-container .gap-4,
+.gradio-container .gr-row,
+.gradio-container .row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+/* Remove padding from the outermost block wrapper Gradio injects */
+.gradio-container > .main > .contain > .col,
+.gradio-container > .main > .contain > div:first-child {
+  padding: 0 !important;
+}
 footer, .built-with { display: none !important; }
 
 /* ── Header ── */
@@ -1103,9 +1140,23 @@ footer, .built-with { display: none !important; }
 .hdr-rule { width:100%; height:1px; background:var(--s700); margin:0; }
 
 /* ── Layout ── */
-.main-row { gap:0 !important; }
-.ctrl-col  { border-right:1px solid var(--s700) !important; padding:32px 28px !important; }
-.view-col  { padding:32px 28px !important; background:var(--bg) !important; }
+.main-row {
+  gap: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-wrap: nowrap !important;
+}
+.ctrl-col {
+  border-right: 1px solid var(--s700) !important;
+  padding: 32px 28px !important;
+  min-width: 0 !important;
+}
+.view-col {
+  padding: 32px 28px !important;
+  background: var(--bg) !important;
+  min-width: 0 !important;
+}
 
 /* ── Section label ── */
 .sec {
