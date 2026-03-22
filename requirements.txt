@@ -1,0 +1,43 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# 3D Model Generator — Requirements
+# All models: MIT or Apache 2.0 — no paid APIs, no keys needed
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── PyTorch (install separately — see README for your CUDA version) ───────────
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+
+# ── Model 1: Shap-E  (OpenAI, MIT) ───────────────────────────────────────────
+# pip install git+https://github.com/openai/shap-e.git
+# Listed below for reference only (pip install from git is required):
+# shap-e
+
+# ── Model 2: TripoSR  (Stability AI + Tripo, MIT) ─────────────────────────────
+# pip install git+https://github.com/VAST-AI-Research/TripoSR.git
+# Listed below for reference only:
+# tsr
+
+# ── Model 3: Point-E  (OpenAI, MIT) ──────────────────────────────────────────
+# pip install git+https://github.com/openai/point-e.git
+# Listed below for reference only:
+# point-e
+
+# ── 3D processing ─────────────────────────────────────────────────────────────
+trimesh[easy]>=4.0.0      # mesh I/O, repair, export (MIT)
+scipy>=1.11.0             # used by trimesh for Taubin smoothing
+numpy>=1.24.0
+
+# ── Image ─────────────────────────────────────────────────────────────────────
+Pillow>=10.0.0
+rembg>=2.0.50             # background removal for TripoSR (MIT)
+
+# ── UI ────────────────────────────────────────────────────────────────────────
+gradio>=4.20.0
+
+# ── Hugging Face Hub  (model weight downloads) ────────────────────────────────
+huggingface_hub>=0.20.0
+transformers>=4.37.0      # CLIP tokeniser used by Shap-E
+
+# ── Optional quality improvements ─────────────────────────────────────────────
+# pyfqmr               # faster quadric decimation
+# xatlas               # GPU-accelerated UV unwrapping
+# open3d>=0.18.0        # advanced point-cloud ops
