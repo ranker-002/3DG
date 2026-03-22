@@ -1,5 +1,5 @@
 # ══════════════════════════════════════════════════════════════════════════════
-# 3D Model Generator — Requirements
+# 3D Model Generator — Requirements  (v2)
 # All models: MIT or Apache 2.0 — no paid APIs, no keys needed
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -20,6 +20,9 @@
 # pip install git+https://github.com/openai/point-e.git
 # Listed below for reference only:
 # point-e
+
+# ── System monitoring ─────────────────────────────────────────────────────────
+psutil>=5.9.0             # RAM / CPU usage display in UI (MIT)
 
 # ── 3D processing ─────────────────────────────────────────────────────────────
 trimesh[easy]>=4.0.0      # mesh I/O, repair, export (MIT)
