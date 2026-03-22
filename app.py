@@ -870,7 +870,7 @@ window.cycleLight = () => {
   });
 };
 
-/* ── GLB Loader (replaces OBJLoader — supports vertex colors & textures) ── */
+/* ── GLB Loader (GLTFLoader — supports vertex colors & textures) ── */
 window.loadGLBInViewer = (url) => {
   if (obj3d) { scene.remove(obj3d); obj3d = null; origMats = []; wireMode = false; colorMode = true; }
   document.getElementById('vempty').style.display   = 'none';
